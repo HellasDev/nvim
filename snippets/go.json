@@ -1,0 +1,222 @@
+{
+  "Error handling": {
+    "prefix": "iferr",
+    "body": [
+      "if err != nil {",
+      "\treturn ${1:nil, }err",
+      "}"
+    ],
+    "description": "Basic error handling"
+  },
+  "Error handling with log": {
+    "prefix": "iferrl",
+    "body": [
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}"
+    ],
+    "description": "Error handling with log.Fatal"
+  },
+  "Error handling with custom message": {
+    "prefix": "iferrm",
+    "body": [
+      "if err != nil {",
+      "\treturn ${1:nil, }fmt.Errorf(\"${2:error message}: %w\", err)",
+      "}"
+    ],
+    "description": "Error handling with custom message"
+  },
+  "HTTP handler": {
+    "prefix": "httphandler",
+    "body": [
+      "func ${1:handlerName}(w http.ResponseWriter, r *http.Request) {",
+      "\t${2:// handler logic}",
+      "}"
+    ],
+    "description": "HTTP handler function"
+  },
+  "HTTP server": {
+    "prefix": "httpserver",
+    "body": [
+      "package main",
+      "",
+      "import (",
+      "\t\"log\"",
+      "\t\"net/http\"",
+      ")",
+      "",
+      "func main() {",
+      "\tmux := http.NewServeMux()",
+      "\tmux.HandleFunc(\"${1:/}\", ${2:handler})",
+      "",
+      "\tlog.Println(\"Server starting on :${3:8080}\")",
+      "\tlog.Fatal(http.ListenAndServe(\":${3:8080}\", mux))",
+      "}"
+    ],
+    "description": "Basic HTTP server"
+  },
+  "Struct with JSON tags": {
+    "prefix": "structjson",
+    "body": [
+      "type ${1:StructName} struct {",
+      "\t${2:Field} ${3:string} `json:\"${4:field}\"`",
+      "}"
+    ],
+    "description": "Struct with JSON tags"
+  },
+  "Interface": {
+    "prefix": "interface",
+    "body": [
+      "type ${1:InterfaceName} interface {",
+      "\t${2:MethodName}(${3:params}) ${4:returnType}",
+      "}"
+    ],
+    "description": "Interface definition"
+  },
+  "Method": {
+    "prefix": "method",
+    "body": [
+      "func (${1:receiver} ${2:ReceiverType}) ${3:MethodName}(${4:params}) ${5:returnType} {",
+      "\t${6:// method body}",
+      "}"
+    ],
+    "description": "Method definition"
+  },
+  "Test function": {
+    "prefix": "test",
+    "body": [
+      "func Test${1:FunctionName}(t *testing.T) {",
+      "\t${2:// test implementation}",
+      "}"
+    ],
+    "description": "Test function"
+  },
+  "Benchmark function": {
+    "prefix": "benchmark",
+    "body": [
+      "func Benchmark${1:FunctionName}(b *testing.B) {",
+      "\tfor i := 0; i < b.N; i++ {",
+      "\t\t${2:// benchmark code}",
+      "\t}",
+      "}"
+    ],
+    "description": "Benchmark function"
+  },
+  "Table driven test": {
+    "prefix": "tabletest",
+    "body": [
+      "func Test${1:FunctionName}(t *testing.T) {",
+      "\ttests := []struct {",
+      "\t\tname string",
+      "\t\t${2:input} ${3:inputType}",
+      "\t\twant ${4:outputType}",
+      "\t\twantErr bool",
+      "\t}{",
+      "\t\t{",
+      "\t\t\tname: \"${5:test case}\",",
+      "\t\t\t${2:input}: ${6:inputValue},",
+      "\t\t\twant: ${7:expectedOutput},",
+      "\t\t\twantErr: false,",
+      "\t\t},",
+      "\t}",
+      "",
+      "\tfor _, tt := range tests {",
+      "\t\tt.Run(tt.name, func(t *testing.T) {",
+      "\t\t\tgot, err := ${8:functionCall}(tt.${2:input})",
+      "\t\t\tif (err != nil) != tt.wantErr {",
+      "\t\t\t\tt.Errorf(\"${8:functionCall}() error = %v, wantErr %v\", err, tt.wantErr)",
+      "\t\t\t\treturn",
+      "\t\t\t}",
+      "\t\t\tif got != tt.want {",
+      "\t\t\t\tt.Errorf(\"${8:functionCall}() = %v, want %v\", got, tt.want)",
+      "\t\t\t}",
+      "\t\t})",
+      "\t}",
+      "}"
+    ],
+    "description": "Table driven test"
+  },
+  "Goroutine": {
+    "prefix": "go",
+    "body": [
+      "go func() {",
+      "\t${1:// goroutine body}",
+      "}()"
+    ],
+    "description": "Anonymous goroutine"
+  },
+  "Channel": {
+    "prefix": "chan",
+    "body": [
+      "${1:ch} := make(chan ${2:type}${3:, ${4:buffer}})"
+    ],
+    "description": "Channel creation"
+  },
+  "Select statement": {
+    "prefix": "select",
+    "body": [
+      "select {",
+      "case ${1:value} := <-${2:channel}:",
+      "\t${3:// handle value}",
+      "case <-${4:timeout}:",
+      "\t${5:// handle timeout}",
+      "default:",
+      "\t${6:// default case}",
+      "}"
+    ],
+    "description": "Select statement"
+  },
+  "Context with timeout": {
+    "prefix": "ctxtimeout",
+    "body": [
+      "ctx, cancel := context.WithTimeout(context.Background(), ${1:time.Second*30})",
+      "defer cancel()"
+    ],
+    "description": "Context with timeout"
+  },
+  "Context with cancel": {
+    "prefix": "ctxcancel",
+    "body": [
+      "ctx, cancel := context.WithCancel(context.Background())",
+      "defer cancel()"
+    ],
+    "description": "Context with cancel"
+  },
+  "For range": {
+    "prefix": "forr",
+    "body": [
+      "for ${1:key}, ${2:value} := range ${3:collection} {",
+      "\t${4:// loop body}",
+      "}"
+    ],
+    "description": "For range loop"
+  },
+  "Log info": {
+    "prefix": "loginfo",
+    "body": [
+      "log.Printf(\"${1:message}: %+v\", ${2:variable})"
+    ],
+    "description": "Log info with formatting"
+  },
+  "JSON marshal": {
+    "prefix": "jsonmarshal",
+    "body": [
+      "data, err := json.Marshal(${1:object})",
+      "if err != nil {",
+      "\treturn ${2:nil, }err",
+      "}"
+    ],
+    "description": "JSON marshal with error handling"
+  },
+  "JSON unmarshal": {
+    "prefix": "jsonunmarshal",
+    "body": [
+      "var ${1:object} ${2:Type}",
+      "err := json.Unmarshal(${3:data}, &${1:object})",
+      "if err != nil {",
+      "\treturn ${4:nil, }err",
+      "}"
+    ],
+    "description": "JSON unmarshal with error handling"
+  }
+}
