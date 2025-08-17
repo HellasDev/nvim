@@ -1,4 +1,19 @@
 {
+  // ===================================================================
+  // Go Snippets Collection - Συλλογή Go αποσπασμάτων κώδικα
+  // ===================================================================
+  // Περιλαμβάνει snippets για όλες τις συνήθεις Go κατασκευές:
+  // • Error handling patterns με διάφορες προσεγγίσεις
+  // • HTTP server και handler functions για web development
+  // • Struct και interface definitions με JSON tags
+  // • Testing utilities (unit tests, benchmarks, table tests)
+  // • Concurrency patterns (goroutines, channels, select)
+  // • Context handling για cancellation και timeouts
+  // • JSON marshaling/unmarshaling με error handling
+  // • Logging και debugging utilities
+  // ===================================================================
+
+  // Βασικό error handling pattern - το πιο συνηθισμένο στη Go
   "Error handling": {
     "prefix": "iferr",
     "body": [
@@ -6,8 +21,10 @@
       "\treturn ${1:nil, }err",
       "}"
     ],
-    "description": "Basic error handling"
+    "description": "Βασικός έλεγχος σφάλματος"
   },
+
+  // Error handling με log.Fatal - για κρίσιμα σφάλματα που τερματίζουν το πρόγραμμα
   "Error handling with log": {
     "prefix": "iferrl",
     "body": [
@@ -15,8 +32,10 @@
       "\tlog.Fatal(err)",
       "}"
     ],
-    "description": "Error handling with log.Fatal"
+    "description": "Έλεγχος σφάλματος με log.Fatal"
   },
+
+  // Error wrapping με custom μήνυμα - για καλύτερη διαγνωστική πληροφορία
   "Error handling with custom message": {
     "prefix": "iferrm",
     "body": [
@@ -24,8 +43,10 @@
       "\treturn ${1:nil, }fmt.Errorf(\"${2:error message}: %w\", err)",
       "}"
     ],
-    "description": "Error handling with custom message"
+    "description": "Έλεγχος σφάλματος με προσαρμοσμένο μήνυμα"
   },
+
+  // HTTP handler function - βασική δομή για web endpoints
   "HTTP handler": {
     "prefix": "httphandler",
     "body": [
@@ -33,8 +54,10 @@
       "\t${2:// handler logic}",
       "}"
     ],
-    "description": "HTTP handler function"
+    "description": "Συνάρτηση HTTP handler"
   },
+
+  // Πλήρης HTTP server - έτοιμο template για web εφαρμογή
   "HTTP server": {
     "prefix": "httpserver",
     "body": [
@@ -53,8 +76,10 @@
       "\tlog.Fatal(http.ListenAndServe(\":${3:8080}\", mux))",
       "}"
     ],
-    "description": "Basic HTTP server"
+    "description": "Βασικός HTTP server"
   },
+
+  // Struct με JSON tags - για API responses και database mapping
   "Struct with JSON tags": {
     "prefix": "structjson",
     "body": [
@@ -62,8 +87,10 @@
       "\t${2:Field} ${3:string} `json:\"${4:field}\"`",
       "}"
     ],
-    "description": "Struct with JSON tags"
+    "description": "Struct με JSON tags"
   },
+
+  // Interface definition - για abstraction και dependency injection
   "Interface": {
     "prefix": "interface",
     "body": [
@@ -71,8 +98,10 @@
       "\t${2:MethodName}(${3:params}) ${4:returnType}",
       "}"
     ],
-    "description": "Interface definition"
+    "description": "Ορισμός interface"
   },
+
+  // Method definition - μέθοδος για struct types
   "Method": {
     "prefix": "method",
     "body": [
@@ -80,8 +109,10 @@
       "\t${6:// method body}",
       "}"
     ],
-    "description": "Method definition"
+    "description": "Ορισμός μεθόδου"
   },
+
+  // Unit test function - βασική δομή για testing
   "Test function": {
     "prefix": "test",
     "body": [
@@ -89,8 +120,10 @@
       "\t${2:// test implementation}",
       "}"
     ],
-    "description": "Test function"
+    "description": "Συνάρτηση test"
   },
+
+  // Benchmark test - για performance measurements
   "Benchmark function": {
     "prefix": "benchmark",
     "body": [
@@ -100,8 +133,10 @@
       "\t}",
       "}"
     ],
-    "description": "Benchmark function"
+    "description": "Συνάρτηση benchmark"
   },
+
+  // Table-driven test - best practice για πολλαπλά test cases
   "Table driven test": {
     "prefix": "tabletest",
     "body": [
@@ -134,8 +169,10 @@
       "\t}",
       "}"
     ],
-    "description": "Table driven test"
+    "description": "Table-driven test"
   },
+
+  // Anonymous goroutine - για concurrent execution
   "Goroutine": {
     "prefix": "go",
     "body": [
@@ -143,15 +180,19 @@
       "\t${1:// goroutine body}",
       "}()"
     ],
-    "description": "Anonymous goroutine"
+    "description": "Ανώνυμη goroutine"
   },
+
+  // Channel creation - για communication μεταξύ goroutines
   "Channel": {
     "prefix": "chan",
     "body": [
       "${1:ch} := make(chan ${2:type}${3:, ${4:buffer}})"
     ],
-    "description": "Channel creation"
+    "description": "Δημιουργία channel"
   },
+
+  // Select statement - για non-blocking channel operations
   "Select statement": {
     "prefix": "select",
     "body": [
@@ -166,22 +207,28 @@
     ],
     "description": "Select statement"
   },
+
+  // Context με timeout - για cancellation και timeouts
   "Context with timeout": {
     "prefix": "ctxtimeout",
     "body": [
       "ctx, cancel := context.WithTimeout(context.Background(), ${1:time.Second*30})",
       "defer cancel()"
     ],
-    "description": "Context with timeout"
+    "description": "Context με timeout"
   },
+
+  // Context με manual cancellation
   "Context with cancel": {
     "prefix": "ctxcancel",
     "body": [
       "ctx, cancel := context.WithCancel(context.Background())",
       "defer cancel()"
     ],
-    "description": "Context with cancel"
+    "description": "Context με ακύρωση"
   },
+
+  // For range loop - για iteration σε collections
   "For range": {
     "prefix": "forr",
     "body": [
@@ -191,13 +238,17 @@
     ],
     "description": "For range loop"
   },
+
+  // Formatted logging - για debugging και monitoring
   "Log info": {
     "prefix": "loginfo",
     "body": [
       "log.Printf(\"${1:message}: %+v\", ${2:variable})"
     ],
-    "description": "Log info with formatting"
+    "description": "Log πληροφοριών με formatting"
   },
+
+  // JSON encoding με error handling
   "JSON marshal": {
     "prefix": "jsonmarshal",
     "body": [
@@ -206,8 +257,10 @@
       "\treturn ${2:nil, }err",
       "}"
     ],
-    "description": "JSON marshal with error handling"
+    "description": "JSON marshal με έλεγχο σφάλματος"
   },
+
+  // JSON decoding με error handling
   "JSON unmarshal": {
     "prefix": "jsonunmarshal",
     "body": [
@@ -217,6 +270,485 @@
       "\treturn ${4:nil, }err",
       "}"
     ],
-    "description": "JSON unmarshal with error handling"
+    "description": "JSON unmarshal με έλεγχο σφάλματος"
+  },
+
+  // ===================================================================
+  // BEGINNER-FRIENDLY SNIPPETS - Snippets για αρχάριους
+  // ===================================================================
+
+  // Βασικό Hello World program - για εκμάθηση της Go
+  "Hello World": {
+    "prefix": "hello",
+    "body": [
+      "package main",
+      "",
+      "import \"fmt\"",
+      "",
+      "func main() {",
+      "\tfmt.Println(\"Hello, World!\")",
+      "}"
+    ],
+    "description": "Βασικό Hello World πρόγραμμα"
+  },
+
+  // Βασική συνάρτηση - template για οποιαδήποτε function
+  "Basic function": {
+    "prefix": "func",
+    "body": [
+      "func ${1:functionName}(${2:params}) ${3:returnType} {",
+      "\t${4:// function body}",
+      "\treturn ${5:value}",
+      "}"
+    ],
+    "description": "Βασική συνάρτηση"
+  },
+
+  // Variable declarations - διάφοροι τρόποι δήλωσης μεταβλητών
+  "Variable declaration": {
+    "prefix": "var",
+    "body": [
+      "var ${1:varName} ${2:type} = ${3:value}"
+    ],
+    "description": "Δήλωση μεταβλητής"
+  },
+
+  // Short variable declaration - ο πιο συνηθισμένος τρόπος
+  "Short variable": {
+    "prefix": "sv",
+    "body": [
+      "${1:varName} := ${2:value}"
+    ],
+    "description": "Σύντομη δήλωση μεταβλητής"
+  },
+
+  // Constant declaration
+  "Constant": {
+    "prefix": "const",
+    "body": [
+      "const ${1:constName} ${2:type} = ${3:value}"
+    ],
+    "description": "Δήλωση σταθεράς"
+  },
+
+  // Basic if statement - βασική conditionals
+  "If statement": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} {",
+      "\t${2:// code}",
+      "}"
+    ],
+    "description": "Βασική if δήλωση"
+  },
+
+  // If-else statement
+  "If-else statement": {
+    "prefix": "ifelse",
+    "body": [
+      "if ${1:condition} {",
+      "\t${2:// true code}",
+      "} else {",
+      "\t${3:// false code}",
+      "}"
+    ],
+    "description": "If-else δήλωση"
+  },
+
+  // Switch statement - για multiple conditions
+  "Switch statement": {
+    "prefix": "switch",
+    "body": [
+      "switch ${1:variable} {",
+      "case ${2:value1}:",
+      "\t${3:// code for value1}",
+      "case ${4:value2}:",
+      "\t${5:// code for value2}",
+      "default:",
+      "\t${6:// default code}",
+      "}"
+    ],
+    "description": "Switch statement"
+  },
+
+  // Basic for loop - βασικός τρόπος επανάληψης
+  "For loop": {
+    "prefix": "for",
+    "body": [
+      "for ${1:i} := ${2:0}; ${1:i} < ${3:10}; ${1:i}++ {",
+      "\t${4:// loop body}",
+      "}"
+    ],
+    "description": "Βασικός for loop"
+  },
+
+  // While-style loop
+  "While loop": {
+    "prefix": "while",
+    "body": [
+      "for ${1:condition} {",
+      "\t${2:// loop body}",
+      "}"
+    ],
+    "description": "While-style loop"
+  },
+
+  // Infinite loop
+  "Infinite loop": {
+    "prefix": "infinite",
+    "body": [
+      "for {",
+      "\t${1:// infinite loop body}",
+      "\t// use break to exit",
+      "}"
+    ],
+    "description": "Άπειρος βρόχος"
+  },
+
+  // Array declaration - βασικές δομές δεδομένων
+  "Array": {
+    "prefix": "array",
+    "body": [
+      "${1:arr} := [${2:5}]${3:int}{${4:1, 2, 3, 4, 5}}"
+    ],
+    "description": "Δήλωση array"
+  },
+
+  // Slice declaration - πιο συνηθισμένο από arrays
+  "Slice": {
+    "prefix": "slice",
+    "body": [
+      "${1:slice} := []${2:int}{${3:1, 2, 3}}"
+    ],
+    "description": "Δήλωση slice"
+  },
+
+  // Map declaration - key-value pairs
+  "Map": {
+    "prefix": "map",
+    "body": [
+      "${1:m} := map[${2:string}]${3:int}{",
+      "\t\"${4:key1}\": ${5:value1},",
+      "\t\"${6:key2}\": ${7:value2},",
+      "}"
+    ],
+    "description": "Δήλωση map"
+  },
+
+  // Make slice με capacity
+  "Make slice": {
+    "prefix": "makeslice",
+    "body": [
+      "${1:slice} := make([]${2:int}, ${3:length}, ${4:capacity})"
+    ],
+    "description": "Δημιουργία slice με make"
+  },
+
+  // Make map
+  "Make map": {
+    "prefix": "makemap",
+    "body": [
+      "${1:m} := make(map[${2:string}]${3:int})"
+    ],
+    "description": "Δημιουργία map με make"
+  },
+
+  // Append to slice - συνηθισμένη λειτουργία
+  "Append slice": {
+    "prefix": "append",
+    "body": [
+      "${1:slice} = append(${1:slice}, ${2:value})"
+    ],
+    "description": "Προσθήκη στοιχείου σε slice"
+  },
+
+  // ===================================================================
+  // FILE OPERATIONS - Λειτουργίες αρχείων
+  // ===================================================================
+
+  // Διάβασμα αρχείου - βασική file I/O
+  "Read file": {
+    "prefix": "readfile",
+    "body": [
+      "data, err := os.ReadFile(\"${1:filename.txt}\")",
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}",
+      "fmt.Println(string(data))"
+    ],
+    "description": "Διάβασμα ολόκληρου αρχείου"
+  },
+
+  // Γράψιμο αρχείου
+  "Write file": {
+    "prefix": "writefile",
+    "body": [
+      "data := []byte(\"${2:Hello, World!}\")",
+      "err := os.WriteFile(\"${1:filename.txt}\", data, 0644)",
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}"
+    ],
+    "description": "Γράψιμο αρχείου"
+  },
+
+  // Άνοιγμα αρχείου για reading/writing
+  "Open file": {
+    "prefix": "openfile",
+    "body": [
+      "file, err := os.Open(\"${1:filename.txt}\")",
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}",
+      "defer file.Close()",
+      "",
+      "${2:// work with file}"
+    ],
+    "description": "Άνοιγμα αρχείου"
+  },
+
+  // Create new file
+  "Create file": {
+    "prefix": "createfile",
+    "body": [
+      "file, err := os.Create(\"${1:filename.txt}\")",
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}",
+      "defer file.Close()",
+      "",
+      "${2:// write to file}"
+    ],
+    "description": "Δημιουργία νέου αρχείου"
+  },
+
+  // Check if file exists
+  "Check file exists": {
+    "prefix": "fileexists",
+    "body": [
+      "if _, err := os.Stat(\"${1:filename.txt}\"); os.IsNotExist(err) {",
+      "\tfmt.Println(\"File does not exist\")",
+      "} else {",
+      "\tfmt.Println(\"File exists\")",
+      "}"
+    ],
+    "description": "Έλεγχος ύπαρξης αρχείου"
+  },
+
+  // ===================================================================
+  // STRING OPERATIONS - Λειτουργίες strings
+  // ===================================================================
+
+  // String formatting με Printf
+  "Printf": {
+    "prefix": "printf",
+    "body": [
+      "fmt.Printf(\"${1:%s}: %d\\n\", ${2:string}, ${3:number})"
+    ],
+    "description": "Formatted printing"
+  },
+
+  // String concatenation
+  "String concat": {
+    "prefix": "strconcat",
+    "body": [
+      "${1:result} := ${2:str1} + ${3:str2}"
+    ],
+    "description": "Συνένωση strings"
+  },
+
+  // String split
+  "String split": {
+    "prefix": "strsplit",
+    "body": [
+      "${1:parts} := strings.Split(${2:str}, \"${3:,}\")"
+    ],
+    "description": "Διαχωρισμός string"
+  },
+
+  // String join
+  "String join": {
+    "prefix": "strjoin",
+    "body": [
+      "${1:result} := strings.Join(${2:slice}, \"${3:,}\")"
+    ],
+    "description": "Ένωση strings από slice"
+  },
+
+  // String contains
+  "String contains": {
+    "prefix": "strcontains",
+    "body": [
+      "if strings.Contains(${1:str}, \"${2:substring}\") {",
+      "\t${3:// string contains substring}",
+      "}"
+    ],
+    "description": "Έλεγχος αν string περιέχει substring"
+  },
+
+  // ===================================================================
+  // HTTP CLIENT - HTTP requests για APIs
+  // ===================================================================
+
+  // GET request - βασικό HTTP client
+  "HTTP GET": {
+    "prefix": "httpget",
+    "body": [
+      "resp, err := http.Get(\"${1:https://api.example.com}\")",
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}",
+      "defer resp.Body.Close()",
+      "",
+      "body, err := io.ReadAll(resp.Body)",
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}",
+      "",
+      "fmt.Println(string(body))"
+    ],
+    "description": "HTTP GET request"
+  },
+
+  // POST request με JSON
+  "HTTP POST JSON": {
+    "prefix": "httppost",
+    "body": [
+      "data := map[string]interface{}{",
+      "\t\"${2:key}\": \"${3:value}\",",
+      "}",
+      "",
+      "jsonData, err := json.Marshal(data)",
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}",
+      "",
+      "resp, err := http.Post(",
+      "\t\"${1:https://api.example.com}\",",
+      "\t\"application/json\",",
+      "\tbytes.NewBuffer(jsonData),",
+      ")",
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}",
+      "defer resp.Body.Close()"
+    ],
+    "description": "HTTP POST με JSON data"
+  },
+
+  // ===================================================================
+  // ENVIRONMENT & CONFIGURATION
+  // ===================================================================
+
+  // Read environment variable
+  "Environment variable": {
+    "prefix": "env",
+    "body": [
+      "${1:value} := os.Getenv(\"${2:ENV_VAR}\")",
+      "if ${1:value} == \"\" {",
+      "\t${1:value} = \"${3:default_value}\"",
+      "}"
+    ],
+    "description": "Διάβασμα environment variable"
+  },
+
+  // Set environment variable
+  "Set environment": {
+    "prefix": "setenv",
+    "body": [
+      "err := os.Setenv(\"${1:ENV_VAR}\", \"${2:value}\")",
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}"
+    ],
+    "description": "Ορισμός environment variable"
+  },
+
+  // Command line arguments
+  "Command line args": {
+    "prefix": "args",
+    "body": [
+      "if len(os.Args) < ${1:2} {",
+      "\tfmt.Println(\"Usage: program ${2:argument}\")",
+      "\tos.Exit(1)",
+      "}",
+      "",
+      "${3:arg} := os.Args[1]"
+    ],
+    "description": "Χειρισμός command line arguments"
+  },
+
+  // ===================================================================
+  // TIME OPERATIONS - Χρόνος και ημερομηνίες
+  // ===================================================================
+
+  // Current time
+  "Current time": {
+    "prefix": "now",
+    "body": [
+      "${1:now} := time.Now()",
+      "fmt.Println(${1:now}.Format(\"2006-01-02 15:04:05\"))"
+    ],
+    "description": "Τρέχουσα ημερομηνία και ώρα"
+  },
+
+  // Sleep για delay
+  "Sleep": {
+    "prefix": "sleep",
+    "body": [
+      "time.Sleep(${1:time.Second * 2})"
+    ],
+    "description": "Παύση εκτέλεσης"
+  },
+
+  // Timer για delayed execution
+  "Timer": {
+    "prefix": "timer",
+    "body": [
+      "timer := time.NewTimer(${1:time.Second * 5})",
+      "<-timer.C",
+      "fmt.Println(\"Timer expired\")"
+    ],
+    "description": "Timer για delayed execution"
+  },
+
+  // ===================================================================
+  // BASIC STRUCTS & POINTERS - Βασικές έννοιες
+  // ===================================================================
+
+  // Simple struct
+  "Simple struct": {
+    "prefix": "struct",
+    "body": [
+      "type ${1:Person} struct {",
+      "\t${2:Name} ${3:string}",
+      "\t${4:Age}  ${5:int}",
+      "}"
+    ],
+    "description": "Απλό struct"
+  },
+
+  // Struct constructor function
+  "New struct": {
+    "prefix": "newstruct",
+    "body": [
+      "func New${1:Person}(${2:name string, age int}) *${1:Person} {",
+      "\treturn &${1:Person}{",
+      "\t\t${3:Name}: ${2:name},",
+      "\t\t${4:Age}:  ${2:age},",
+      "\t}",
+      "}"
+    ],
+    "description": "Constructor function για struct"
+  },
+
+  // Pointer declaration
+  "Pointer": {
+    "prefix": "pointer",
+    "body": [
+      "${1:ptr} := &${2:variable}",
+      "fmt.Println(*${1:ptr}) // dereference"
+    ],
+    "description": "Pointer declaration και dereference"
   }
 }
