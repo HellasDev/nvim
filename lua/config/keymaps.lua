@@ -113,11 +113,11 @@ vim.keymap.set("n", "<leader>t", ":Trouble diagnostics toggle focus=true<cr>",
 vim.keymap.set("n", "<leader>e", ":Oil --float --preview<cr>", { silent = false, desc = "📁 Oil - Διαχειριστής αρχείων" })
 
 -- Plugin: Telescope (Fuzzy Finder)
-vim.keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", { desc = "🔍 Telescope - Λίστα buffers" })
-vim.keymap.set("n", "<leader>fo", ":Telescope oldfiles<cr>", { desc = "🕰️ Telescope - Πρόσφατα αρχεία" })
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files<cr>", { desc = "📄 Telescope - Εύρεση αρχείων" })
-vim.keymap.set("n", "<leader>ft", ":Telescope live_grep<cr>", { desc = "🔍 Telescope - Αναζήτηση κειμένου" })
-vim.keymap.set({ "n", "x" }, "<leader>br", ":Telescope refactoring refactors<cr>", { desc = "🔄 Telescope - Refactoring" })
+vim.keymap.set("n", "<leader>fb", function() require("telescope.builtin").buffers() end, { desc = "🔍 Telescope - Λίστα buffers" })
+vim.keymap.set("n", "<leader>fo", function() require("telescope.builtin").oldfiles() end, { desc = "🕰️ Telescope - Πρόσφατα αρχεία" })
+vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files() end, { desc = "📄 Telescope - Εύρεση αρχείων" })
+vim.keymap.set("n", "<leader>ft", function() require("telescope.builtin").live_grep() end, { desc = "🔍 Telescope - Αναζήτηση κειμένου" })
+vim.keymap.set({ "n", "x" }, "<leader>br", function() require("telescope").extensions.refactoring.refactors() end, { desc = "🔄 Telescope - Refactoring" })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "TelescopePrompt",
   callback = function(args)
