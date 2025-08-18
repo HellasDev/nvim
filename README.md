@@ -29,6 +29,8 @@
 - 🎯 **Which-key** για διαδραστικό keymap guide
 - 🔄 **Session management** με αυτόματη αποθήκευση/φόρτωση
 - 🎮 **Left-handed friendly** (j/k keys swapped)
+- 🖼️ **Image preview** με external viewer (eog) για Hyprland
+- 🔗 **Smart link opening** για local files και URLs
 
 ## 📸 Screenshots
 
@@ -46,6 +48,7 @@
 - **Node.js** >= 16.0 και **npm** για LSP servers
 - **Go** >= 1.21 για Go development tools
 - **Make** για compilation των extensions
+- **chafa** για image preview στο Telescope
 
 ### Optional αλλά Συνιστώμενα
 - **TMUX** για seamless navigation με Navigator.nvim
@@ -62,6 +65,9 @@ sudo pacman -Syu
 
 # Εγκατάσταση βασικών εργαλείων
 sudo pacman -S neovim git ripgrep fd make nodejs npm go tmux
+
+# Εγκατάσταση chafa για image preview στο Telescope
+sudo pacman -S chafa
 
 # Εγκατάσταση optional εργαλείων
 sudo pacman -S git-delta lazygit
@@ -80,6 +86,7 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
+
 
 ### Βήμα 3: Εγκατάσταση JavaScript/TypeScript Tools
 
@@ -124,6 +131,9 @@ brew update
 
 # Εγκατάσταση βασικών εργαλείων
 brew install neovim git ripgrep fd make node go tmux
+
+# Εγκατάσταση chafa για image preview στο Telescope
+brew install chafa
 
 # Εγκατάσταση optional εργαλείων
 brew install git-delta lazygit
@@ -181,6 +191,7 @@ nvim +"MasonInstallAll" +qa
 
 ### 🔍 Navigation & Search
 - **telescope.nvim** - Fuzzy finder για αρχεία και κείμενο
+- **telescope-media-files.nvim** - Image preview στο Telescope
 - **oil.nvim** - Σύγχρονος file manager
 - **Navigator.nvim** - TMUX integration για seamless navigation
 
@@ -209,6 +220,10 @@ nvim +"MasonInstallAll" +qa
 - **colorizer.nvim** - Live color preview για CSS/hex codes
 - **fidget.nvim** - LSP progress notifications
 
+### 🖼️ Image Preview
+- **telescope-media-files.nvim** - Image preview στο Telescope με chafa
+- **External viewer integration** - Άνοιγμα εικόνων με eog σε floating window
+
 ## ⌨️ Keymaps και Navigation
 
 ### Βασικά Keymaps (Leader: Space)
@@ -220,6 +235,7 @@ nvim +"MasonInstallAll" +qa
 | `<leader>e` | 📁 Oil file manager |
 | `<leader>v` | 🧩 Κάθετο χωρισμός |
 | `<leader>h` | 🧱 Οριζόντιος χωρισμός |
+| `<leader>al` | 🔗 Άνοιγμα link κάτω από κέρσορα |
 
 ### Telescope Search
 
@@ -227,6 +243,7 @@ nvim +"MasonInstallAll" +qa
 |--------|-----------|
 | `<leader>ff` | 📄 Εύρεση αρχείων |
 | `<leader>ft` | 🔍 Αναζήτηση κειμένου |
+| `<leader>fm` | 🖼️ Media files με preview |
 | `<leader>fb` | 🔍 Λίστα buffers |
 | `<leader>fo` | 🕰️ Πρόσφατα αρχεία |
 
@@ -250,6 +267,21 @@ nvim +"MasonInstallAll" +qa
 | `Shift+↑/↓` | 📄 Page scroll |
 | `Shift+←/→` | 🔄 Buffer navigation |
 | `Ctrl+Arrow` | 🪟 Window switching |
+
+### Image Preview
+
+| Keymap | Περιγραφή |
+|--------|-----------|
+| `<leader>ip` | 🖼️ Άνοιγμα εικόνας με eog |
+| `<leader>fm` | 📂 Telescope media files browser |
+
+**Υποστηριζόμενα formats:**
+- PNG, JPEG, GIF, WebP, AVIF, HEIC, HEIF
+- SVG, BMP, ICO, TIFF
+- RAW formats (CR2, NEF, ARW, κτλ.)
+- **Telescope preview** - γρήγορη αναζήτηση εικόνων με chafa
+- **External viewer** - άνοιγμα σε floating window με eog
+- **Smart detection** - αναγνώριση image paths στον κώδικα
 
 ## 🐹 Go Development
 

@@ -26,6 +26,7 @@ return {
 			end,
 		},
 		"nvim-telescope/telescope-ui-select.nvim",
+		"nvim-telescope/telescope-media-files.nvim",
 	},
 	config = function()
 		local actions = require("telescope.actions")
@@ -120,10 +121,23 @@ return {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown({}),
 				},
+				media_files = {
+					filetypes = {"png", "webp", "jpg", "jpeg", "gif", "svg", "bmp", "ico", "tiff", "heic", "heif"},
+					find_cmd = "rg",
+					chafa = {
+						size = "40x30",
+						format = "symbols",
+						symbols = "block+border+space-wide+half+solid+stipple",
+						dither = "ordered",
+						colors = "256",
+						work = 9,
+					}
+				},
 			},
 		})
 
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
+		pcall(require("telescope").load_extension, "media_files")
 	end,
 }
