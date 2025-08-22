@@ -230,7 +230,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   desc = "Αυτόματη δημιουργία directories αν δεν υπάρχουν",
   callback = function()
-    local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p:h")
+    local bufname = vim.api.nvim_buf_get_name(0)
+    -- Skip oil:// buffers and other special buffers
+    if bufname:match("^oil://") or bufname:match("^%w+://") then
+      return
+    end
+    local dir = vim.fn.fnamemodify(bufname, ":p:h")
     if vim.fn.isdirectory(dir) == 0 then
       vim.fn.mkdir(dir, "p")
     end

@@ -76,6 +76,7 @@ return {
       lspconfig.gopls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
+        offset_encoding = "utf-8",
         settings = {
           gopls = {
             gofumpt = true,

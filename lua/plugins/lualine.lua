@@ -80,12 +80,10 @@ return {
 				{
 					"diagnostics",
 					sources = { "nvim_diagnostic" },
-					sections = { "error", "warn", "info", "hint" },
+					sections = { "error", "warn" },
 					symbols = {
 						error = "󱍌 ",
 						warn = "󱍊 ",
-						info = "󱌸 ",
-						hint = "󱍄 ",
 					},
 					colored = true,
 					update_in_insert = true,
