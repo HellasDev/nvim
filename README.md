@@ -1,6 +1,20 @@
+<div align="center">
+
 # 🚀 Neovim Configuration - Hellas Dev's Setup
 
-Μια σύγχρονη και πλήρως διαμορφωμένη εγκατάσταση Neovim με εστίαση στην Go ανάπτυξη και γενική χρήση προγραμματισμού. Περιλαμβάνει πάνω από 25 plugins, LSP integration, debugging, και πολλά προηγμένα features για μια επαγγελματική εμπειρία development.
+[![Neovim](https://img.shields.io/badge/Neovim-0.9+-57A143?style=flat&logo=neovim&logoColor=white)](https://neovim.io/)
+[![Lua](https://img.shields.io/badge/Lua-2C2D72?style=flat&logo=lua&logoColor=white)](https://www.lua.org/)
+[![Go](https://img.shields.io/badge/Go-Optimized-00ADD8?style=flat&logo=go&logoColor=white)](https://golang.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat)](LICENSE)
+[![LSP](https://img.shields.io/badge/LSP-Enabled-blueviolet?style=flat)](https://microsoft.github.io/language-server-protocol/)
+[![Sponsor](https://img.shields.io/badge/Sponsor-❤️-ff69b4?style=flat&logo=github-sponsors)](https://github.com/sponsors/HellasDev)
+
+_Μια σύγχρονη και πλήρως διαμορφωμένη εγκατάσταση Neovim με εστίαση στην Go ανάπτυξη και γενική χρήση προγραμματισμού._  
+_Περιλαμβάνει πάνω από 25 plugins, LSP integration, debugging, και πολλά προηγμένα features για μια επαγγελματική εμπειρία development._
+
+</div>
+
+---
 
 ## 📋 Περιεχόμενα
 
