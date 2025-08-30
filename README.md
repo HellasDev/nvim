@@ -9,85 +9,85 @@
 [![LSP](https://img.shields.io/badge/LSP-Enabled-blueviolet?style=flat)](https://microsoft.github.io/language-server-protocol/)
 [![Sponsor](https://img.shields.io/badge/Sponsor-❤️-ff69b4?style=flat&logo=github-sponsors)](https://github.com/sponsors/HellasDev)
 
-_Μια σύγχρονη και πλήρως διαμορφωμένη εγκατάσταση Neovim με εστίαση στην Go ανάπτυξη και γενική χρήση προγραμματισμού._  
-_Περιλαμβάνει πάνω από 25 plugins, LSP integration, debugging, και πολλά προηγμένα features για μια επαγγελματική εμπειρία development._
+_A modern and fully configured Neovim setup focused on Go development and general programming use._  
+_Includes 25+ plugins, LSP integration, debugging, and many advanced features for a professional development experience._
 
 </div>
 
 ---
 
-## 📋 Περιεχόμενα
+## 📋 Table of Contents
 
-- [Χαρακτηριστικά](#-χαρακτηριστικά)
+- [Features](#-features)
 - [Screenshots](#-screenshots)
-- [Προαπαιτούμενα](#-προαπαιτούμενα)
-- [Εγκατάσταση για Arch Linux](#-εγκατάσταση-για-arch-linux)
-- [Εγκατάσταση για macOS](#-εγκατάσταση-για-macos)
-- [Plugins που περιλαμβάνονται](#-plugins-που-περιλαμβάνονται)
-- [Keymaps και Navigation](#-keymaps-και-navigation)
+- [Prerequisites](#-prerequisites)
+- [Installation for Arch Linux](#-installation-for-arch-linux)
+- [Installation for macOS](#-installation-for-macos)
+- [Included Plugins](#-included-plugins)
+- [Keymaps and Navigation](#-keymaps-and-navigation)
 - [Go Development](#-go-development)
 - [Debugging](#-debugging)
 - [Troubleshooting](#-troubleshooting)
 
-## ✨ Χαρακτηριστικά
+## ✨ Features
 
-- 🎨 **OneDark Theme** με consistent styling σε όλα τα UI elements
-- 🔍 **Telescope** για γρήγορη αναζήτηση αρχείων και κειμένου
-- 🌲 **Treesitter** για προηγμένο syntax highlighting
-- 🛠️ **LSP Integration** με Mason για αυτόματη εγκατάσταση servers
-- 🐹 **Ολοκληρωμένη Go υποστήριξη** με debugging, testing, και code coverage
-- 📁 **Oil.nvim** για σύγχρονη διαχείριση αρχείων
-- 🧩 **Autocompletion** με nvim-cmp και snippets
-- 🔧 **Code formatting** με Conform για πολλές γλώσσες
-- 📊 **Git integration** με Gitsigns
-- 🎯 **Which-key** για διαδραστικό keymap guide
-- 🔄 **Session management** με αυτόματη αποθήκευση/φόρτωση
+- 🎨 **OneDark Theme** with consistent styling across all UI elements
+- 🔍 **Telescope** for fast file and text searching
+- 🌲 **Treesitter** for advanced syntax highlighting
+- 🛠️ **LSP Integration** with Mason for automatic server installation
+- 🐹 **Comprehensive Go support** with debugging, testing, and code coverage
+- 📁 **Oil.nvim** for modern file management
+- 🧩 **Autocompletion** with nvim-cmp and snippets
+- 🔧 **Code formatting** with Conform for multiple languages
+- 📊 **Git integration** with Gitsigns
+- 🎯 **Which-key** for interactive keymap guide
+- 🔄 **Session management** with auto-save/load
 - 🎮 **Left-handed friendly** (j/k keys swapped)
-- 🖼️ **Image preview** με external viewer (eog) για Hyprland
-- 🔗 **Smart link opening** για local files και URLs
+- 🖼️ **Image preview** with external viewer (eog) for Hyprland
+- 🔗 **Smart link opening** for local files and URLs
 
 ## 📸 Screenshots
 
-*Θα προσθέσεις εδώ screenshots της εγκατάστασής σου*
+*Add screenshots of your setup here*
 
-## 📦 Προαπαιτούμενα
+## 📦 Prerequisites
 
-Πριν την εγκατάσταση, βεβαιώσου ότι έχεις εγκατεστημένα τα ακόλουθα:
+Before installation, ensure you have the following installed:
 
-### Βασικά Εργαλεία
+### Essential Tools
 - **Neovim** >= 0.9.0
-- **Git** για το cloning του repository
-- **ripgrep** (rg) για γρήγορη αναζήτηση κειμένου
-- **fd** για γρήγορη αναζήτηση αρχείων
-- **Node.js** >= 16.0 και **npm** για LSP servers
-- **Go** >= 1.21 για Go development tools
-- **Make** για compilation των extensions
-- **chafa** για image preview στο Telescope
+- **Git** for cloning the repository
+- **ripgrep** (rg) for fast text searching
+- **fd** for fast file searching
+- **Node.js** >= 16.0 and **npm** for LSP servers
+- **Go** >= 1.21 for Go development tools
+- **Make** for building extensions
+- **chafa** for image preview in Telescope
 
-### Optional αλλά Συνιστώμενα
-- **TMUX** για seamless navigation με Navigator.nvim
-- **Delta** για καλύτερα git diffs
-- **Lazygit** για Git GUI integration
+### Optional but Recommended
+- **TMUX** for seamless navigation with Navigator.nvim
+- **Delta** for better git diffs
+- **Lazygit** for Git GUI integration
 
-## 🐧 Εγκατάσταση για Arch Linux
+## 🐧 Installation for Arch Linux
 
-### Βήμα 1: Εγκατάσταση Βασικών Πακέτων
+### Step 1: Install Essential Packages
 
 ```bash
-# Ενημέρωση του συστήματος
+# Update system
 sudo pacman -Syu
 
-# Εγκατάσταση βασικών εργαλείων
+# Install essential tools
 sudo pacman -S neovim git ripgrep fd make nodejs npm go tmux
 
-# Εγκατάσταση chafa για image preview στο Telescope
+# Install chafa for image preview in Telescope
 sudo pacman -S chafa
 
-# Εγκατάσταση optional εργαλείων
+# Install optional tools
 sudo pacman -S git-delta lazygit
 ```
 
-### Βήμα 2: Εγκατάσταση Go Tools
+### Step 2: Install Go Tools
 
 ```bash
 # Go development tools
@@ -96,64 +96,63 @@ go install mvdan.cc/gofumpt@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 
-# Προσθήκη του Go bin path στο PATH αν δεν υπάρχει ήδη
+# Add Go bin path to PATH if not already present
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-
-### Βήμα 3: Εγκατάσταση JavaScript/TypeScript Tools
+### Step 3: Install JavaScript/TypeScript Tools
 
 ```bash
-# Formatters και linters για web development
+# Formatters and linters for web development
 npm install -g prettier @fsouza/prettierd eslint typescript
 
 # Lua formatter
 sudo pacman -S stylua
 ```
 
-### Βήμα 4: Clone και Setup του Configuration
+### Step 4: Clone and Setup Configuration
 
 ```bash
-# Backup της υπάρχουσας εγκατάστασης (αν υπάρχει)
+# Backup existing installation (if present)
 mv ~/.config/nvim ~/.config/nvim.backup 2>/dev/null || true
 mv ~/.local/share/nvim ~/.local/share/nvim.backup 2>/dev/null || true
 
-# Clone του repository
+# Clone repository
 git clone https://github.com/HellasDev/nvim.git ~/.config/nvim
 
-# Εκκίνηση του Neovim για αυτόματη εγκατάσταση plugins
+# Start Neovim for automatic plugin installation
 nvim --headless "+Lazy! sync" +qa
 
-# Δεύτερη εκκίνηση για εγκατάσταση LSP servers
+# Second startup for LSP server installation
 nvim +"MasonInstallAll" +qa
 ```
 
-## 🍎 Εγκατάσταση για macOS
+## 🍎 Installation for macOS
 
-### Βήμα 1: Εγκατάσταση Homebrew (αν δεν υπάρχει)
+### Step 1: Install Homebrew (if not present)
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Βήμα 2: Εγκατάσταση Βασικών Πακέτων
+### Step 2: Install Essential Packages
 
 ```bash
-# Ενημέρωση Homebrew
+# Update Homebrew
 brew update
 
-# Εγκατάσταση βασικών εργαλείων
+# Install essential tools
 brew install neovim git ripgrep fd make node go tmux
 
-# Εγκατάσταση chafa για image preview στο Telescope
+# Install chafa for image preview in Telescope
 brew install chafa
 
-# Εγκατάσταση optional εργαλείων
+# Install optional tools
 brew install git-delta lazygit
 ```
 
-### Βήμα 3: Εγκατάσταση Go Tools
+### Step 3: Install Go Tools
 
 ```bash
 # Go development tools
@@ -162,109 +161,109 @@ go install mvdan.cc/gofumpt@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 
-# Προσθήκη του Go bin path στο PATH
+# Add Go bin path to PATH
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-### Βήμα 4: Εγκατάσταση JavaScript/TypeScript Tools
+### Step 4: Install JavaScript/TypeScript Tools
 
 ```bash
-# Formatters και linters για web development
+# Formatters and linters for web development
 npm install -g prettier @fsouza/prettierd eslint typescript
 
 # Lua formatter
 brew install stylua
 ```
 
-### Βήμα 5: Clone και Setup του Configuration
+### Step 5: Clone and Setup Configuration
 
 ```bash
-# Backup της υπάρχουσας εγκατάστασης (αν υπάρχει)
+# Backup existing installation (if present)
 mv ~/.config/nvim ~/.config/nvim.backup 2>/dev/null || true
 mv ~/.local/share/nvim ~/.local/share/nvim.backup 2>/dev/null || true
 
-# Clone του repository
+# Clone repository
 git clone https://github.com/HellasDev/nvim.git ~/.config/nvim
 
-# Εκκίνηση του Neovim για αυτόματη εγκατάσταση plugins
+# Start Neovim for automatic plugin installation
 nvim --headless "+Lazy! sync" +qa
 
-# Δεύτερη εκκίνηση για εγκατάσταση LSP servers
+# Second startup for LSP server installation
 nvim +"MasonInstallAll" +qa
 ```
 
-## 🔌 Plugins που περιλαμβάνονται
+## 🔌 Included Plugins
 
 ### 🎨 UI & Theming
-- **onedark.nvim** - Κύριο theme με custom highlights
-- **lualine.nvim** - Όμορφη status line με git info
-- **bufferline.nvim** - Browser-style tabs για buffers
-- **noice.nvim** + **nvim-notify** - Σύγχρονο UI για messages
-- **which-key.nvim** - Διαδραστικό keymap guide
+- **onedark.nvim** - Main theme with custom highlights
+- **lualine.nvim** - Beautiful status line with git info
+- **bufferline.nvim** - Browser-style tabs for buffers
+- **noice.nvim** + **nvim-notify** - Modern UI for messages
+- **which-key.nvim** - Interactive keymap guide
 
 ### 🔍 Navigation & Search
-- **telescope.nvim** - Fuzzy finder για αρχεία και κείμενο
-- **telescope-media-files.nvim** - Image preview στο Telescope
-- **oil.nvim** - Σύγχρονος file manager
-- **Navigator.nvim** - TMUX integration για seamless navigation
+- **telescope.nvim** - Fuzzy finder for files and text
+- **telescope-media-files.nvim** - Image preview in Telescope
+- **oil.nvim** - Modern file manager
+- **Navigator.nvim** - TMUX integration for seamless navigation
 
 ### 🛠️ Development Tools
-- **nvim-lspconfig** + **mason.nvim** - LSP setup και management
-- **nvim-cmp** - Autocompletion engine με multiple sources
-- **LuaSnip** - Snippet engine με VSCode compatibility
-- **conform.nvim** - Code formatting για πολλές γλώσσες
-- **nvim-treesitter** - Syntax highlighting και text objects
+- **nvim-lspconfig** + **mason.nvim** - LSP setup and management
+- **nvim-cmp** - Autocompletion engine with multiple sources
+- **LuaSnip** - Snippet engine with VSCode compatibility
+- **conform.nvim** - Code formatting for multiple languages
+- **nvim-treesitter** - Syntax highlighting and text objects
 
 ### 🐹 Go Development
-- **go.nvim** - Ολοκληρωμένα Go tools και commands
-- **nvim-dap** + **nvim-dap-go** - Debugging με DAP
+- **go.nvim** - Comprehensive Go tools and commands
+- **nvim-dap** + **nvim-dap-go** - Debugging with DAP
 - **nvim-dap-ui** - Visual debugging interface
-- **neotest** + **neotest-go** - Test runner με UI
+- **neotest** + **neotest-go** - Test runner with UI
 - **nvim-coverage** - Code coverage visualization
 
 ### 🔧 Code Quality & Git
-- **gitsigns.nvim** - Git integration με visual indicators
-- **Comment.nvim** - Smart commenting με treesitter
+- **gitsigns.nvim** - Git integration with visual indicators
+- **Comment.nvim** - Smart commenting with treesitter
 - **trouble.nvim** - Diagnostics management
-- **hlchunk.nvim** - Visual indentation και block highlighting
+- **hlchunk.nvim** - Visual indentation and block highlighting
 
 ### 🎯 Productivity
-- **resession.nvim** - Session management με auto-save/load
-- **colorizer.nvim** - Live color preview για CSS/hex codes
+- **resession.nvim** - Session management with auto-save/load
+- **colorizer.nvim** - Live color preview for CSS/hex codes
 - **fidget.nvim** - LSP progress notifications
 
 ### 🖼️ Image Preview
-- **telescope-media-files.nvim** - Image preview στο Telescope με chafa
-- **External viewer integration** - Άνοιγμα εικόνων με eog σε floating window
+- **telescope-media-files.nvim** - Image preview in Telescope with chafa
+- **External viewer integration** - Open images with eog in floating window
 
-## ⌨️ Keymaps και Navigation
+## ⌨️ Keymaps and Navigation
 
-### Βασικά Keymaps (Leader: Space)
+### Basic Keymaps (Leader: Space)
 
-| Keymap | Περιγραφή |
-|--------|-----------|
-| `<leader>w` | 💾 Αποθήκευση αρχείου |
-| `<leader>q` | ❌ Κλείσιμο buffer |
+| Keymap | Description |
+|--------|-------------|
+| `<leader>w` | 💾 Save file |
+| `<leader>q` | ❌ Close buffer |
 | `<leader>e` | 📁 Oil file manager |
-| `<leader>v` | 🧩 Κάθετο χωρισμός |
-| `<leader>h` | 🧱 Οριζόντιος χωρισμός |
-| `<leader>al` | 🔗 Άνοιγμα link κάτω από κέρσορα |
+| `<leader>v` | 🧩 Vertical split |
+| `<leader>h` | 🧱 Horizontal split |
+| `<leader>al` | 🔗 Open link under cursor |
 
 ### Telescope Search
 
-| Keymap | Περιγραφή |
-|--------|-----------|
-| `<leader>ff` | 📄 Εύρεση αρχείων |
-| `<leader>ft` | 🔍 Αναζήτηση κειμένου |
-| `<leader>fm` | 🖼️ Media files με preview |
-| `<leader>fb` | 🔍 Λίστα buffers |
-| `<leader>fo` | 🕰️ Πρόσφατα αρχεία |
+| Keymap | Description |
+|--------|-------------|
+| `<leader>ff` | 📄 Find files |
+| `<leader>ft` | 🔍 Search text |
+| `<leader>fm` | 🖼️ Media files with preview |
+| `<leader>fb` | 🔍 Buffer list |
+| `<leader>fo` | 🕰️ Recent files |
 
 ### LSP Commands
 
-| Keymap | Περιγραφή |
-|--------|-----------|
+| Keymap | Description |
+|--------|-------------|
 | `<leader><space>` | 📄 LSP hover |
 | `<leader>rn` | ✏️ LSP rename |
 | `<leader>ca` | 🔧 Code actions |
@@ -274,54 +273,54 @@ nvim +"MasonInstallAll" +qa
 
 ### Navigation (Left-handed optimized)
 
-| Keymap | Περιγραφή |
-|--------|-----------|
-| `j` | ⬆️ Κίνηση προς τα πάνω |
-| `k` | ⬇️ Κίνηση προς τα κάτω |
+| Keymap | Description |
+|--------|-------------|
+| `j` | ⬆️ Move up |
+| `k` | ⬇️ Move down |
 | `Shift+↑/↓` | 📄 Page scroll |
 | `Shift+←/→` | 🔄 Buffer navigation |
 | `Ctrl+Arrow` | 🪟 Window switching |
 
 ### Image Preview
 
-| Keymap | Περιγραφή |
-|--------|-----------|
-| `<leader>ip` | 🖼️ Άνοιγμα εικόνας με eog |
+| Keymap | Description |
+|--------|-------------|
+| `<leader>ip` | 🖼️ Open image with eog |
 | `<leader>fm` | 📂 Telescope media files browser |
 
-**Υποστηριζόμενα formats:**
+**Supported formats:**
 - PNG, JPEG, GIF, WebP, AVIF, HEIC, HEIF
 - SVG, BMP, ICO, TIFF
-- RAW formats (CR2, NEF, ARW, κτλ.)
-- **Telescope preview** - γρήγορη αναζήτηση εικόνων με chafa
-- **External viewer** - άνοιγμα σε floating window με eog
-- **Smart detection** - αναγνώριση image paths στον κώδικα
+- RAW formats (CR2, NEF, ARW, etc.)
+- **Telescope preview** - fast image searching with chafa
+- **External viewer** - open in floating window with eog
+- **Smart detection** - recognize image paths in code
 
 ## 🐹 Go Development
 
 ### Go Commands
 
-| Keymap | Περιγραφή |
-|--------|-----------|
-| `<leader>gr` | 🏃 Εκτέλεση Go αρχείου |
-| `<leader>gt` | ✅ Tests πακέτου |
-| `<leader>gT` | 🎯 Test κάτω από κέρσορα |
-| `<leader>gb` | 🔨 Build Go πακέτου |
+| Keymap | Description |
+|--------|-------------|
+| `<leader>gr` | 🏃 Run Go file |
+| `<leader>gt` | ✅ Package tests |
+| `<leader>gT` | 🎯 Test under cursor |
+| `<leader>gb` | 🔨 Build Go package |
 | `<leader>gm` | 🧹 Go mod tidy |
-| `<leader>gi` | 📦 Προσθήκη imports |
-| `<leader>gfs` | 🧩 Συμπλήρωση struct |
-| `<leader>gat` | 🏷️ Προσθήκη struct tags |
-| `<leader>grt` | 🗑️ Αφαίρεση struct tags |
-| `<leader>gal` | 🔄 Εναλλαγή test/source |
-| `<leader>gc` | 📊 Φόρτωση coverage |
-| `<leader>gC` | 🔍 Εναλλαγή coverage |
-| `<leader>gnp` | 🏗️ Δημιουργία νέου Go project |
+| `<leader>gi` | 📦 Add imports |
+| `<leader>gfs` | 🧩 Fill struct |
+| `<leader>gat` | 🏷️ Add struct tags |
+| `<leader>grt` | 🗑️ Remove struct tags |
+| `<leader>gal` | 🔄 Alternate test/source |
+| `<leader>gc` | 📊 Load coverage |
+| `<leader>gC` | 🔍 Toggle coverage |
+| `<leader>gnp` | 🏗️ Create new Go project |
 
 ### Go LSP Features
 
-- **gopls** με πλήρη configuration για:
-  - Inlay hints για types και parameters
-  - Code lenses για tests και dependencies
+- **gopls** with full configuration for:
+  - Inlay hints for types and parameters
+  - Code lenses for tests and dependencies
   - Advanced analysis (fieldalignment, nilness, unusedparams)
   - gofumpt formatting integration
   - Complete unimported packages
@@ -331,8 +330,8 @@ nvim +"MasonInstallAll" +qa
 
 ### Debug Commands
 
-| Keymap | Περιγραφή |
-|--------|-----------|
+| Keymap | Description |
+|--------|-------------|
 | `<leader>db` | 🔴 Toggle breakpoint |
 | `<leader>dr` | ▶️ Start/Continue debug |
 | `<leader>ds` | ⏭️ Step over |
@@ -344,55 +343,55 @@ nvim +"MasonInstallAll" +qa
 
 ### Debug Features
 
-- **DAP Integration** με nvim-dap για Go debugging
-- **Visual UI** με panels για scopes, variables, call stack
-- **Virtual text** για inline variable inspection
-- **Breakpoint management** με visual indicators
-- **Remote debugging** support για Docker containers
+- **DAP Integration** with nvim-dap for Go debugging
+- **Visual UI** with panels for scopes, variables, call stack
+- **Virtual text** for inline variable inspection
+- **Breakpoint management** with visual indicators
+- **Remote debugging** support for Docker containers
 
 ## 🔧 Troubleshooting
 
-### Συχνά Προβλήματα
+### Common Issues
 
-#### LSP Servers δεν λειτουργούν
+#### LSP Servers not working
 ```bash
-# Έλεγχος εγκατάστασης των LSP servers
+# Check LSP server installation
 nvim +"Mason" +qa
 
-# Επανεγκατάσταση όλων των servers
+# Reinstall all servers
 nvim +"MasonInstallAll" +qa
 ```
 
-#### Go tools δεν βρίσκονται
+#### Go tools not found
 ```bash
-# Έλεγχος του Go PATH
+# Check Go PATH
 go env GOPATH
 echo $PATH | grep -o "$(go env GOPATH)/bin"
 
-# Αν δεν υπάρχει, προσθήκη στο PATH
+# If not present, add to PATH
 echo 'export PATH=$PATH:$(go env GOPATH)/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-#### Formatting δεν λειτουργεί
+#### Formatting not working
 ```bash
-# Έλεγχος εγκατάστασης formatters
+# Check formatter installation
 which prettier
 which stylua
 which gofumpt
 
-# Επανεγκατάσταση αν χρειάζεται
+# Reinstall if needed
 npm install -g prettier
-sudo pacman -S stylua  # ή brew install stylua για macOS
+sudo pacman -S stylua  # or brew install stylua for macOS
 go install mvdan.cc/gofumpt@latest
 ```
 
-### Επαναφορά Configuration
+### Reset Configuration
 
-Αν κάτι πάει στραβά, μπορείς να επαναφέρεις την παλιά εγκατάσταση:
+If something goes wrong, you can restore the old installation:
 
 ```bash
-# Επαναφορά backup
+# Restore backup
 rm -rf ~/.config/nvim
 mv ~/.config/nvim.backup ~/.config/nvim
 
@@ -402,47 +401,47 @@ mv ~/.local/share/nvim.backup ~/.local/share/nvim
 
 ## 📝 Customization
 
-### Προσθήκη Custom Snippets
+### Adding Custom Snippets
 
-Δημιούργησε τον φάκελο `~/.config/nvim/snippets` και προσθες VSCode-compatible snippets:
+Create the `~/.config/nvim/snippets` folder and add VSCode-compatible snippets:
 
 ```bash
 mkdir -p ~/.config/nvim/snippets
-# Προσθήκη custom Go snippets στο snippets/go.json
+# Add custom Go snippets to snippets/go.json
 ```
 
-### Αλλαγή Theme
+### Changing Theme
 
-Στο αρχείο `lua/plugins/onedark.lua`, μπορείς να αλλάξεις το style:
+In the `lua/plugins/onedark.lua` file, you can change the style:
 
 ```lua
-style = "dark", -- ή "darker", "cool", "deep", "warm", "warmer"
+style = "dark", -- or "darker", "cool", "deep", "warm", "warmer"
 ```
 
 ### Custom Keymaps
 
-Προσθήκη custom keymaps στο `lua/config/keymaps.lua`.
+Add custom keymaps to `lua/config/keymaps.lua`.
 
 ## 🤝 Contributing
 
-Αν θες να συνεισφέρεις στο configuration:
+If you want to contribute to this configuration:
 
-1. Fork το repository
-2. Δημιούργησε ένα feature branch
-3. Κάνε τις αλλαγές σου
-4. Δοκίμασε ότι όλα λειτουργούν σωστά
-5. Στείλε ένα Pull Request
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test that everything works correctly
+5. Send a Pull Request
 
 ## 📄 License
 
-Αυτό το configuration είναι διαθέσιμο υπό την MIT License. Μπορείς να το χρησιμοποιήσεις και να το τροποποιήσεις ελεύθερα.
+This configuration is available under the MIT License. You can use and modify it freely.
 
 ## 🙏 Acknowledgments
 
-Ευχαριστίες σε όλους τους developers των plugins που χρησιμοποιούνται σε αυτό το configuration. Ιδιαίτερες ευχαριστίες στην Neovim community για τη συνεχή ανάπτυξη και βελτίωση του editor.
+Thanks to all plugin developers used in this configuration. Special thanks to the Neovim community for continuous development and improvement of the editor.
 
 ---
 
-**Καλή διασκέδαση με το Neovim! 🚀**
+**Happy coding with Neovim! 🚀**
 
-*Αν αντιμετωπίσεις προβλήματα ή έχεις ερωτήσεις, μη διστάσεις να ανοίξεις ένα issue στο GitHub repository.*
+*If you encounter issues or have questions, don't hesitate to open an issue on the GitHub repository.*
