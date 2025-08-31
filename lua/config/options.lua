@@ -231,8 +231,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Αυτόματη δημιουργία directories αν δεν υπάρχουν",
   callback = function()
     local bufname = vim.api.nvim_buf_get_name(0)
-    -- Skip oil:// buffers and other special buffers
-    if bufname:match("^oil://") or bufname:match("^%w+://") then
+    -- Skip special protocol buffers
+    if bufname:match("^%w+://") then
       return
     end
     local dir = vim.fn.fnamemodify(bufname, ":p:h")
@@ -242,21 +242,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- Αντικαταστήστε την καθολική αντιστοίχιση Esc με αυτήν:
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "oil",
-  callback = function(event)
-    -- Check if it's a floating window
-    local win_config = vim.api.nvim_win_get_config(0)
-    if win_config.relative and win_config.relative ~= "" then
-      -- Buffer-local mapping for Esc only in Oil floating window
-      vim.keymap.set("n", "<Esc>", "<cmd>q<CR>", {
-        buffer = event.buf,
-        desc = "Close Oil Floating Window",
-      })
-    end
-  end,
-})
+-- Yazi integration - no special Esc handling needed as yazi.nvim handles it automatically
 
 -- ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 -- 🐹 GO DEVELOPMENT OPTIMIZATIONS

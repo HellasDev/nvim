@@ -163,13 +163,7 @@ vim.keymap.set(
 	{ silent = false, desc = "🚑 Trouble - Λίστα προβλημάτων" }
 )
 
--- Plugin: Oil (File Manager)
-vim.keymap.set(
-	"n",
-	"<leader>e",
-	":Oil --float --preview<cr>",
-	{ silent = false, desc = "📁 Oil - Διαχειριστής αρχείων" }
-)
+-- Plugin: Yazi (File Manager) - Handled by plugin keymap configuration
 
 -- Plugin: Telescope (Fuzzy Finder)
 vim.keymap.set("n", "<leader>fb", function()
