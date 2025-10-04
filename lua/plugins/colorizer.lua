@@ -32,7 +32,7 @@ return {
 				css_fn = true,
 				mode = "background",
 				tailwind = true,
-				sass = { enable = true, parsers = { "css" } },
+				sass = { enable = false },
 				virtualtext = "■",
 				always_update = false,
 			},

@@ -56,7 +56,6 @@ return {
     },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -73,10 +72,13 @@ return {
         end
       end
 
-      lspconfig.gopls.setup({
-        on_attach = on_attach,
+      -- Configure gopls
+      vim.lsp.config.gopls = {
+        cmd = { "gopls" },
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        root_markers = { "go.work", "go.mod", ".git" },
         capabilities = capabilities,
-        offset_encoding = "utf-8",
+        on_attach = on_attach,
         settings = {
           gopls = {
             gofumpt = true,
@@ -112,16 +114,24 @@ return {
             semanticTokens = true,
           },
         },
-      })
+      }
 
-      lspconfig.golangci_lint_ls.setup({
-        on_attach = on_attach,
+      -- Configure golangci_lint_ls
+      vim.lsp.config.golangci_lint_ls = {
+        cmd = { "golangci-lint-langserver" },
+        filetypes = { "go", "gomod" },
+        root_markers = { "go.work", "go.mod", ".git" },
         capabilities = capabilities,
-      })
+        on_attach = on_attach,
+      }
 
-      lspconfig.lua_ls.setup({
-        on_attach = on_attach,
+      -- Configure lua_ls
+      vim.lsp.config.lua_ls = {
+        cmd = { "lua-language-server" },
+        filetypes = { "lua" },
+        root_markers = { ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml", ".git" },
         capabilities = capabilities,
+        on_attach = on_attach,
         settings = {
           Lua = {
             runtime = {
@@ -139,19 +149,40 @@ return {
             },
           },
         },
-      })
+      }
 
-      local web_servers = { "html", "cssls", "jsonls" }
-      for _, server in ipairs(web_servers) do
-        lspconfig[server].setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-        })
-      end
-
-      lspconfig.ts_ls.setup({
-        on_attach = on_attach,
+      -- Configure web servers
+      vim.lsp.config.html = {
+        cmd = { "vscode-html-language-server", "--stdio" },
+        filetypes = { "html" },
+        root_markers = { "package.json", ".git" },
         capabilities = capabilities,
+        on_attach = on_attach,
+      }
+
+      vim.lsp.config.cssls = {
+        cmd = { "vscode-css-language-server", "--stdio" },
+        filetypes = { "css", "scss", "less" },
+        root_markers = { "package.json", ".git" },
+        capabilities = capabilities,
+        on_attach = on_attach,
+      }
+
+      vim.lsp.config.jsonls = {
+        cmd = { "vscode-json-language-server", "--stdio" },
+        filetypes = { "json", "jsonc" },
+        root_markers = { "package.json", ".git" },
+        capabilities = capabilities,
+        on_attach = on_attach,
+      }
+
+      -- Configure ts_ls
+      vim.lsp.config.ts_ls = {
+        cmd = { "typescript-language-server", "--stdio" },
+        filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+        root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+        capabilities = capabilities,
+        on_attach = on_attach,
         settings = {
           typescript = {
             inlayHints = {
@@ -176,12 +207,19 @@ return {
             },
           },
         },
-      })
+      }
 
-      lspconfig.eslint.setup({
-        on_attach = on_attach,
+      -- Configure eslint
+      vim.lsp.config.eslint = {
+        cmd = { "vscode-eslint-language-server", "--stdio" },
+        filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" },
+        root_markers = { ".eslintrc", ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.yaml", ".eslintrc.yml", ".eslintrc.json", "package.json", ".git" },
         capabilities = capabilities,
-      })
+        on_attach = on_attach,
+      }
+
+      -- Enable all configured servers
+      vim.lsp.enable({ "gopls", "golangci_lint_ls", "lua_ls", "html", "cssls", "jsonls", "ts_ls", "eslint" })
     end,
   },
 }

@@ -13,50 +13,48 @@
 -- ================================================================
 
 return {
-	"navarasu/onedark.nvim",
-	name = "onedark",
+	"rebelot/kanagawa.nvim",
+	name = "kanagawa",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("onedark").setup({
-			style = "dark",
+		require("kanagawa").setup({
+			compile = false,
+			undercurl = true,
+			commentStyle = { italic = true },
+			functionStyle = {},
+			keywordStyle = { italic = false },
+			statementStyle = { bold = true },
+			typeStyle = {},
 			transparent = false,
-			term_colors = true,
-			ending_tildes = false,
-			cmp_itemkind_reverse = false,
-			code_style = {
-				comments = "italic",
-				keywords = "none",
-				functions = "none",
-				strings = "none",
-				variables = "none",
+			dimInactive = false,
+			terminalColors = true,
+			colors = {
+				theme = {
+					all = {
+						ui = {
+							bg_gutter = "none"
+						}
+					}
+				}
 			},
-			lualine = {
-				transparent = false,
-			},
-			highlights = {
-				OilFloat = { bg = "#282C34", fg = "#ABB2BF" },
-				OilFloatBorder = { bg = "#282C34", fg = "#61AFEF" },
-				TerminalFloat = { bg = "#282C34", fg = "#ABB2BF" },
-				TerminalFloatBorder = { bg = "#282C34", fg = "#61AFEF" },
-				NormalFloat = { bg = "#282C34", fg = "#ABB2BF" },
-				FloatBorder = { bg = "#282C34", fg = "#61AFEF" },
-			},
-			diagnostics = {
-				darker = true,
-				undercurl = true,
-				background = false,
+			overrides = function(colors)
+				local theme = colors.theme
+				return {
+					NormalFloat = { bg = theme.ui.bg },
+					FloatBorder = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
+					FloatTitle = { bg = theme.ui.bg },
+				}
+			end,
+			theme = "wave", -- dragon, wave, lotus
+			background = {
+				dark = "wave",
+				light = "lotus"
 			},
 		})
-		require("onedark").load()
+
 		vim.o.termguicolors = true
 		vim.o.background = "dark"
-		vim.cmd("colorscheme onedark")
-		vim.defer_fn(function()
-			vim.api.nvim_set_hl(0, "OilFloat", { bg = "#282C34", fg = "#ABB2BF" })
-			vim.api.nvim_set_hl(0, "OilFloatBorder", { bg = "#282C34", fg = "#61AFEF" })
-			vim.api.nvim_set_hl(0, "TerminalFloat", { bg = "#282C34", fg = "#ABB2BF" })
-			vim.api.nvim_set_hl(0, "TerminalFloatBorder", { bg = "#282C34", fg = "#61AFEF" })
-		end, 100)
+		vim.cmd("colorscheme kanagawa")
 	end,
 }

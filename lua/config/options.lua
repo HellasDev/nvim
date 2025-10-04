@@ -242,7 +242,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- Yazi integration - no special Esc handling needed as yazi.nvim handles it automatically
 
 -- ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 -- 🐹 GO DEVELOPMENT OPTIMIZATIONS

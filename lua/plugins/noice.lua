@@ -21,7 +21,7 @@ return {
         "rcarriga/nvim-notify",
         config = function()
           require("notify").setup({
-            background_colour = "#282C34",
+            background_colour = "Normal",
             stages = "fade_in_slide_out",
             fps = 60,
           })
@@ -66,13 +66,6 @@ return {
         },
       })
 
-      local set_hl = vim.api.nvim_set_hl
-      set_hl(0, "NoiceCmdLinePopupBorder", { fg = "#61AFEF", bg = "NONE" })
-      set_hl(0, "NoiceCmdLinePopup", { bg = "#282C34" })
-      set_hl(0, "NoicePopupmenuBorder", { fg = "#61AFEF", bg = "NONE" })
-      set_hl(0, "NoicePopupmenu", { bg = "#282C34" })
-      set_hl(0, "NoiceNotifyBorder", { fg = "#61AFEF", bg = "NONE" })
-      set_hl(0, "NoiceNotify", { bg = "#282C34" })
     end,
   },
 }

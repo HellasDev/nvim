@@ -163,7 +163,6 @@ vim.keymap.set(
 	{ silent = false, desc = "🚑 Trouble - Λίστα προβλημάτων" }
 )
 
--- Plugin: Yazi (File Manager) - Handled by plugin keymap configuration
 
 -- Plugin: Telescope (Fuzzy Finder)
 vim.keymap.set("n", "<leader>fb", function()
@@ -283,8 +282,8 @@ vim.keymap.set("n", "<leader>ip", function()
   end
   
   if vim.fn.filereadable(file_path) == 1 then
-    -- Άνοιγμα του eog σε floating window για Hyprland
-    local cmd = "hyprctl dispatch exec 'eog --class=eog-float \"" .. file_path .. "\"'"
+    -- Άνοιγμα του imv για προεπισκόπηση εικόνας
+    local cmd = "imv \"" .. file_path .. "\" &"
     vim.fn.system(cmd)
     vim.notify("Image preview: " .. vim.fn.fnamemodify(file_path, ":t"), vim.log.levels.INFO)
   else
