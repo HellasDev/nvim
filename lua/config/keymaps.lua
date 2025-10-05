@@ -684,4 +684,22 @@ end
 -- Keymap για άνοιγμα link με <leader>gx
 vim.keymap.set("n", "<leader>al", open_link, { desc = "🔗 Άνοιγμα link κάτω από κέρσορα" })
 
+-- [[ Theme Toggle ]]
+------------------------------------------------------------------------------------------------------------------------
+
+-- Εναλλαγή μεταξύ dragon (σκούρου) και lotus (ανοιχτού) kanagawa theme
+vim.keymap.set("n", "<leader>th", function()
+	local cache_file = vim.fn.stdpath("cache") .. "/theme_bg"
+	local current_bg = vim.o.background
+	if current_bg == "dark" then
+		vim.o.background = "light"
+		vim.fn.writefile({"light"}, cache_file)
+		vim.notify("Kanagawa Lotus (Ανοιχτό)", vim.log.levels.INFO)
+	else
+		vim.o.background = "dark"
+		vim.fn.writefile({"dark"}, cache_file)
+		vim.notify("Kanagawa Wave (Σκούρο)", vim.log.levels.INFO)
+	end
+end, { desc = "🎨 Εναλλαγή σκούρο/ανοιχτό theme" })
+
 return {}

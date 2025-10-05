@@ -1,15 +1,13 @@
 -- ================================================================
--- OneDark Theme - Κύριο χρωματικό σχήμα του Neovim
+-- Kanagawa Theme - Κύριο χρωματικό σχήμα του Neovim
 -- ================================================================
--- Modern dark theme εμπνευσμένο από το Atom One Dark με:
+-- Kanagawa theme εμπνευσμένο από την ιαπωνική ζωγραφική με:
 -- • 24-bit true color support για βαθιά και πλούσια χρώματα
 -- • Italic comments για καλύτερη αναγνωσιμότητα του κώδικα
--- • Custom highlights για floating windows (Oil, Terminal, popups)
--- • Consistent border colors (#61AFEF) σε όλα τα UI elements
--- • Lualine integration με matching theme colors
--- • Enhanced diagnostics με undercurl effects αλλά χωρίς backgrounds
--- • Terminal integration για consistent χρώματα και στο terminal
--- • Deferred highlight loading για optimal startup performance
+-- • Custom highlights για floating windows
+-- • Wave (σκούρο), Dragon (πολύ σκούρο), Lotus (ανοιχτό) variants
+-- • Terminal integration για consistent χρώματα
+-- • Theme toggle με <leader>th που θυμάται την επιλογή
 -- ================================================================
 
 return {
@@ -54,7 +52,16 @@ return {
 		})
 
 		vim.o.termguicolors = true
-		vim.o.background = "dark"
+
+		-- Φόρτωση αποθηκευμένου theme preference
+		local cache_file = vim.fn.stdpath("cache") .. "/theme_bg"
+		if vim.fn.filereadable(cache_file) == 1 then
+			local saved_bg = vim.fn.readfile(cache_file)[1]
+			vim.o.background = saved_bg or "dark"
+		else
+			vim.o.background = "dark"
+		end
+
 		vim.cmd("colorscheme kanagawa")
 	end,
 }
