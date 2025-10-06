@@ -63,6 +63,9 @@ return {
         properties = { "documentation", "detail", "additionalTextEdits" },
       }
 
+      -- Set default position encoding to suppress warnings
+      capabilities.offsetEncoding = { "utf-16", "utf-8" }
+
       local on_attach = function(client, bufnr)
         if client.name == "lua_ls" then
           client.server_capabilities.documentFormattingProvider = false
