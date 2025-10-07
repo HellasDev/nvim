@@ -11,7 +11,7 @@ return {
 	event = "VeryLazy",
 	config = function()
 		local wk = require("which-key")
-		
+
 		wk.setup({
 			preset = "modern",
 			win = {
@@ -26,60 +26,129 @@ return {
 			show_keys = true,
 		})
 
+		-- Απόκρυψη συγκεκριμένων keymaps από το which-key menu
 		wk.add({
+			{ "<leader>w", hidden = true },
+			{ "<leader>q", hidden = true },
+			{ "<leader>e", hidden = true },
+			{ "<leader>th", hidden = true },
+		})
+
+		wk.add({
+			-- ============================================
+			-- 📁 ΑΡΧΕΙΑ & ΑΝΑΖΗΤΗΣΗ (Telescope)
+			-- ============================================
 			{ "<leader>f", group = "📁 Αρχεία & Αναζήτηση" },
 			{ "<leader>ff", desc = "📄 Εύρεση αρχείων" },
 			{ "<leader>ft", desc = "🔍 Αναζήτηση κειμένου" },
-			{ "<leader>fb", desc = "🔍 Λίστα buffers" },
+			{ "<leader>fb", desc = "📚 Λίστα buffers" },
 			{ "<leader>fo", desc = "🕰️ Πρόσφατα αρχεία" },
-			
+			{ "<leader>fm", desc = "🖼️ Media files" },
+
+			-- ============================================
+			-- 🐹 GO DEVELOPMENT
+			-- ============================================
 			{ "<leader>g", group = "🐹 Go Development" },
-			{ "<leader>gr", desc = "🏃 Εκτέλεση Go αρχείου" },
-			{ "<leader>gt", desc = "✅ Tests πακέτου" },
+			{ "<leader>gr", desc = "🏃 Run αρχείου" },
+			{ "<leader>gb", desc = "🔨 Build πακέτου" },
+			{ "<leader>gm", desc = "🧹 Mod tidy" },
+			{ "<leader>gi", desc = "📦 Import" },
+			{ "<leader>ge", desc = "🌳 Git status" },
+
+			-- Go Testing
+			{ "<leader>gt", group = "🧪 Testing" },
 			{ "<leader>gT", desc = "🎯 Test κάτω από κέρσορα" },
-			{ "<leader>gb", desc = "🔨 Build Go πακέτου" },
-			{ "<leader>gm", desc = "🧹 Go mod tidy" },
-			{ "<leader>gi", desc = "📦 Προσθήκη imports" },
-			{ "<leader>gfs", desc = "🧩 Συμπλήρωση struct" },
-			{ "<leader>gat", desc = "🏷️ Προσθήκη struct tags" },
-			{ "<leader>gal", desc = "🔄 Εναλλαγή test/source" },
-			{ "<leader>grt", desc = "🗑️ Αφαίρεση struct tags" },
-			{ "<leader>gie", desc = "⚠️ Generate if err" },
-			{ "<leader>gc", desc = "📊 Φόρτωση coverage" },
-			{ "<leader>gC", desc = "🔍 Εναλλαγή coverage" },
-			{ "<leader>gnp", desc = "🏗️ Δημιουργία νέου Go project" },
-			
-			{ "<leader>d", group = "🐛 Debugging" },
-			{ "<leader>db", desc = "🔴 Breakpoint (toggle)" },
-			{ "<leader>dr", desc = "▶️ Εκκίνηση/Συνέχεια debug" },
-			{ "<leader>ds", desc = "⏭️ Step over (πάνω από)" },
-			{ "<leader>di", desc = "⏬ Μπες μέσα (step into)" },
-			{ "<leader>do", desc = "⏪ Βγες έξω (step out)" },
-			{ "<leader>dt", desc = "⏹️ Τερματισμός debug" },
-			{ "<leader>du", desc = "📺 Εναλλαγή Debug UI" },
-			{ "<leader>dgt", desc = "🧪 Debug Go test" },
-			{ "<leader>dgT", desc = "🔄 Debug τελευταίο Go test" },
-			
-			{ "<leader>w", desc = "💾 Αποθήκευση αρχείου" },
-			{ "<leader>q", desc = "❌ Κλείσιμο buffer" },
-			{ "<leader>e", desc = "📁 Oil - Διαχειριστής αρχείων" },
-			{ "<leader>v", desc = "🧩 Κάθετο χωρισμός" },
-			{ "<leader>h", desc = "🧱 Οριζόντιος χωρισμός" },
-			{ "<leader>t", desc = "🚑 Trouble - Λίστα προβλημάτων" },
-			{ "<leader>f", desc = "🎨 Μορφοποίηση κώδικα" },
-			{ "<leader>d", desc = "⚠️ Εμφάνιση διαγνωστικών" },
-			{ "<leader>ss", desc = "🔄 Αντικατάσταση λέξης" },
-			{ "<leader>aa", desc = "📄 Επιλογή όλου του κειμένου" },
-			{ "<leader><space>", desc = "📄 Πληροφορίες hover" },
-			
+			{ "<leader>gtr", desc = "🏃 Τρέχον test" },
+			{ "<leader>gtf", desc = "📄 Tests αρχείου" },
+			{ "<leader>gts", desc = "📊 Summary" },
+			{ "<leader>gto", desc = "📝 Output" },
+
+			-- Go Code Actions
+			{ "<leader>ga", group = "⚡ Actions" },
+			{ "<leader>gfs", desc = "🧩 Fill struct" },
+			{ "<leader>gat", desc = "🏷️ Add tags" },
+			{ "<leader>grt", desc = "🗑️ Remove tags" },
+			{ "<leader>gie", desc = "⚠️ If err" },
+			{ "<leader>gal", desc = "🔄 Alt test/source" },
+
+			-- Go Coverage
+			{ "<leader>gc", desc = "📊 Coverage load" },
+			{ "<leader>gC", desc = "🔍 Coverage toggle" },
+			{ "<leader>gcs", desc = "📈 Coverage summary" },
+
+			-- ============================================
+			-- 🐛 DEBUGGING
+			-- ============================================
+			{ "<leader>d", group = "🐛 Debug" },
+			{ "<leader>db", desc = "🔴 Breakpoint" },
+			{ "<leader>dB", desc = "⚙️ Conditional breakpoint" },
+			{ "<leader>dr", desc = "▶️ Continue" },
+			{ "<leader>ds", desc = "⏭️ Step over" },
+			{ "<leader>di", desc = "⏬ Step into" },
+			{ "<leader>do", desc = "⏪ Step out" },
+			{ "<leader>dt", desc = "⏹️ Terminate" },
+			{ "<leader>du", desc = "📺 Debug UI" },
+			{ "<leader>dh", desc = "📄 Hover" },
+			{ "<leader>dp", desc = "🔍 Preview" },
+			{ "<leader>df", desc = "🖼️ Frames" },
+			{ "<leader>dS", desc = "🔍 Scopes" },
+
+			-- Debug Go Tests
+			{ "<leader>dg", group = "🧪 Go Tests" },
+			{ "<leader>dgt", desc = "🧪 Debug test" },
+			{ "<leader>dgT", desc = "🔄 Debug last test" },
+
+			-- ============================================
+			-- 🔍 GO TO NAVIGATION
+			-- ============================================
 			{ "g", group = "🎯 Go to" },
-			{ "gd", desc = "🎯 Πήγαινε στον ορισμό" },
-			{ "gr", desc = "🔗 Εύρεση αναφορών" },
-			{ "gi", desc = "🔧 Πήγαινε στην υλοποίηση" },
-			
-			{ "U", desc = "↪️ Επανάληψη (Redo)" },
-			{ "<C-x>", desc = "📱 Νέο tab με terminal" },
-			{ "<C-z>", desc = "💻 Εναλλαγή floating terminal" },
+			{ "gd", desc = "🎯 Definition" },
+			{ "gr", desc = "🔗 References" },
+			{ "gi", desc = "🔧 Implementation" },
+
+			-- ============================================
+			-- 📝 MARKDOWN
+			-- ============================================
+			{ "<leader>m", group = "📝 Markdown" },
+			{ "<leader>mr", desc = "📝 Toggle render" },
+
+			-- ============================================
+			-- 🌐 WEB & LIVE SERVER
+			-- ============================================
+			{ "<leader>l", group = "🌐 Live/LSP" },
+			{ "<leader>lv", desc = "🌐 Live Server" },
+
+			-- ============================================
+			-- 🖼️ IMAGE & LINKS
+			-- ============================================
+			{ "<leader>i", group = "🖼️ Image" },
+			{ "<leader>ip", desc = "🖼️ Preview" },
+
+			-- ============================================
+			-- 🔧 ΑΛΛΑ
+			-- ============================================
+			{ "<leader>a", group = "🔧 Actions" },
+			{ "<leader>al", desc = "🔗 Open link" },
+			{ "<leader>aa", desc = "📄 Select all" },
+
+			{ "<leader>s", group = "🔄 Search/Replace" },
+			{ "<leader>ss", desc = "🔄 Replace word" },
+
+			{ "<leader>t", group = "🚑 Trouble" },
+			{ "<leader>th", desc = "🎨 Toggle theme" },
+
+			{ "<leader>c", group = "💻 Code" },
+			{ "<leader>ca", desc = "⚙️ Code actions" },
+
+			{ "<leader>r", group = "🏷️ Rename" },
+			{ "<leader>rn", desc = "🏷️ Rename symbol" },
+
+			-- ============================================
+			-- ⌨️ ΒΑΣΙΚΕΣ ΕΝΤΟΛΕΣ
+			-- ============================================
+			{ "U", desc = "↪️ Redo" },
+			{ "<C-x>", desc = "📱 Terminal tab" },
+			{ "<C-z>", desc = "💻 Float term" },
 		})
 	end,
 }

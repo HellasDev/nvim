@@ -20,6 +20,9 @@ vim.g.maplocalleader = " "
 -- Χαμηλότερη τιμή = πιο responsive interface, αλλά περισσότερη χρήση CPU
 vim.opt.updatetime = 50
 
+vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.expand("$HOME") .. "/go/bin"
+
+
 -- Ενεργοποίηση μόνιμου undo history που αποθηκεύεται στον δίσκο
 -- Επιτρέπει undo ακόμα και μετά το κλείσιμο και επαναφορά του αρχείου
 vim.opt.undofile = true
@@ -259,16 +262,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.shiftwidth = 4
     vim.opt_local.softtabstop = 4
 
-    -- Εμφάνιση whitespace για καλύτερη ορατότητα του Go formatting
-    vim.opt_local.list = true
-    vim.opt_local.listchars = {
-      tab = "▸ ", -- Tabs φαίνονται σαν βέλη
-      trail = "·", -- Trailing spaces
-      nbsp = "␣" -- Non-breaking spaces
-    }
+    vim.opt_local.list = false
 
     -- Column guide στα 120 characters (Go standard line length)
-    vim.opt_local.colorcolumn = "120"
+    -- vim.opt_local.colorcolumn = "120"
 
     -- Ρύθμιση για automatic line breaking στα 120 characters
     vim.opt_local.textwidth = 120
@@ -276,9 +273,6 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Απενεργοποίηση spell checking (δεν χρειάζεται στον κώδικα)
     vim.opt_local.spell = false
 
-    -- Ενεργοποίηση folding για καλύτερη πλοήγηση σε μεγάλα αρχεία
-    vim.opt_local.foldmethod = "syntax"
-    vim.opt_local.foldlevel = 99     -- Αρχικά όλα ξεδιπλωμένα
   end,
 })
 

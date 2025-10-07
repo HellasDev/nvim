@@ -180,9 +180,7 @@ end, { desc = "🔍 Telescope - Αναζήτηση κειμένου" })
 vim.keymap.set("n", "<leader>fm", function()
 	require("telescope").extensions.media_files.media_files()
 end, { desc = "🖼️ Telescope - Media files" })
-vim.keymap.set({ "n", "x" }, "<leader>br", function()
-	require("telescope").extensions.refactoring.refactors()
-end, { desc = "🔄 Telescope - Refactoring" })
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "TelescopePrompt",
 	callback = function(args)
