@@ -283,7 +283,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Αυτόματο formatting και import organization για Go αρχεία",
   callback = function()
     -- Organize imports πρώτα
-    local params = vim.lsp.util.make_range_params()
+    -- Παίρνουμε τον πρώτο διαθέσιμο LSP client για το buffer
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
+    if #clients == 0 then
+      -- Αν δεν υπάρχει LSP client, κάνε μόνο format
+      vim.lsp.buf.format({ async = false })
+      return
+    end
+
+    local client = clients[1]
+    local enc = client.offset_encoding or "utf-16"
+
+    local params = vim.lsp.util.make_range_params(nil, enc)
     params.context = { only = { "source.organizeImports" } }
     local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 1000)
 
@@ -291,8 +302,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       for cid, res in pairs(result) do
         for _, r in pairs(res.result or {}) do
           if r.edit then
-            local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-            vim.lsp.util.apply_workspace_edit(r.edit, enc)
+            local client_enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+            vim.lsp.util.apply_workspace_edit(r.edit, client_enc)
           end
         end
       end
