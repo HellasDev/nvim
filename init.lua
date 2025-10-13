@@ -1,3 +1,6 @@
+-- Ensure PATH includes npm global bin
+vim.env.PATH = vim.env.HOME .. "/.npm-global/bin:" .. vim.env.PATH
+
 require("config.options")
 require("config.lazy")
 require("config.keymaps")
